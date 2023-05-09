@@ -1,13 +1,18 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
+  const button = document.querySelector('button');
+
   const smilingPic = 'assets/images/smiling.png';
   const talkingPic = 'assets/images/talking.png';
+
   const synthsis = window.speechSynthesis;
-  const voiceSelect = document.getElementById('voice-select');
-  const button = document.querySelector('button');
+
   const textToSpeak = document.getElementById('text-to-speak');
-  const imgElement = document.querySelector('img');
+
+  const voiceSelect = document.getElementById('voice-select');
+
+  const img = document.querySelector('img');
 
 
   function saveVoice() {
@@ -15,11 +20,15 @@ function init() {
     voiceSelect.innerHTML = '';
 
     for (const audio of audios) {
-      const option = document.createElement('option');
-      option.textContent = audio.name + ' (' + audio.lang + ')';
-      option.setAttribute('lang', audio.lang);
-      option.setAttribute('name', audio.name);
-      voiceSelect.appendChild(option);
+      const choose = document.createElement('choose');
+
+      choose.setAttribute('lang', audio.lang);
+      choose.setAttribute('name', audio.name);
+
+      choose.textContent = audio.name + ' (' + audio.lang + ')';
+      choose.setAttribute('lang', audio.lang);
+      choose.setAttribute('name', audio.name);
+      voiceSelect.appendChild(choose);
     }
   }
 
@@ -37,10 +46,10 @@ function init() {
       }
     }
 
-    imgElement.src = talkingPic;
+    img.src = talkingPic;
     synthsis.speak(newValue);
     newValue.onend = () => {
-      imgElement.src = smilingPic;
+      img.src = smilingPic;
     };
   });
 }
