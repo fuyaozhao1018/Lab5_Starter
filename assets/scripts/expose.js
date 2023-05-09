@@ -3,46 +3,65 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
+
   const volumePics = [
     'assets/icons/volume-level-0.svg',
     'assets/icons/volume-level-1.svg',
     'assets/icons/volume-level-2.svg',
     'assets/icons/volume-level-3.svg',
   ];
-  const hornSelect = document.getElementById('horn-select');
-  const img = document.querySelector('img');
-  const audio = document.querySelector('audio');
+
   const volume = document.getElementById('volume');
+
   const volumePic = document.querySelector('#volume-controls img');
+
+  const hornSelect = document.getElementById('horn-select');
+
+  const img = document.querySelector('img');
+
+  const audio = document.querySelector('audio');
+
   const button = document.querySelector('button');
 
 
   const horn = {
-    'air-horn': {
-      image: 'assets/images/air-horn.svg',
-      sound: 'assets/media/audio/air-horn.mp3',
-    },
-    'car-horn': {
-      image: 'assets/images/car.svg',
-      sound: 'assets/media/audio/car-horn.mp3',
-    },
     'party-horn': {
-      image: 'assets/images/party-horn.svg',
       sound: 'assets/media/audio/party-horn.mp3',
+
+      image: 'assets/images/party-horn.svg',
+    },
+
+    'car-horn': {
+      sound: 'assets/media/audio/car-horn.mp3',
+
+      image: 'assets/images/car.svg',
+    },
+
+    'air-horn': {
+      sound: 'assets/media/audio/air-horn.mp3',
+
+      image: 'assets/images/air-horn.svg',
     },
   };
 
   const jsConfetti = new JSConfetti();
 
   hornSelect.addEventListener('change', (e) => {
+
     const value = e.target.value;
-    img.src = horn[value].image;
+
     audio.src = horn[value].sound;
+
+    img.src = horn[value].image;
+
   });
 
   volume.addEventListener('input', (e) => {
+
     const value = parseInt(e.target.value);
+
     let picnum;
+
     if (value === 0) {
       picnum = 0;
 
@@ -56,11 +75,14 @@ function init() {
       picnum = 3;
     }
 
-    volumePic.src = volumePics[picnum];
     audio.volume = value / 100;
+
+    volumePic.src = volumePics[picnum];
+
   });
 
   button.addEventListener('click', () => {
+    
     if (audio.src) {
       audio.play();
 
