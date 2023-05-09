@@ -3,7 +3,7 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  
+
   const jsConfetti = new JSConfetti();
 
   const volumePics = [
@@ -66,15 +66,19 @@ function init() {
     let picnum;
 
     if (value === 0) {
+
       picnum = 0;
 
     } else if (value < 33) {
+
       picnum = 1;
 
     } else if (value < 67) {
+
       picnum = 2;
 
     } else {
+      
       picnum = 3;
     }
 
