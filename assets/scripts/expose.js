@@ -3,6 +3,8 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
+  
+  const jsConfetti = new JSConfetti();
 
   const volumePics = [
     'assets/icons/volume-level-0.svg',
@@ -10,6 +12,29 @@ function init() {
     'assets/icons/volume-level-2.svg',
     'assets/icons/volume-level-3.svg',
   ];
+
+  const horn = {
+    'party-horn': {
+
+      sound: 'assets/media/audio/party-horn.mp3',
+
+      image: 'assets/images/party-horn.svg',
+    },
+
+    'car-horn': {
+
+      sound: 'assets/media/audio/car-horn.mp3',
+
+      image: 'assets/images/car.svg',
+    },
+
+    'air-horn': {
+      
+      sound: 'assets/media/audio/air-horn.mp3',
+
+      image: 'assets/images/air-horn.svg',
+    },
+  };
 
   const volume = document.getElementById('volume');
 
@@ -23,28 +48,6 @@ function init() {
 
   const button = document.querySelector('button');
 
-
-  const horn = {
-    'party-horn': {
-      sound: 'assets/media/audio/party-horn.mp3',
-
-      image: 'assets/images/party-horn.svg',
-    },
-
-    'car-horn': {
-      sound: 'assets/media/audio/car-horn.mp3',
-
-      image: 'assets/images/car.svg',
-    },
-
-    'air-horn': {
-      sound: 'assets/media/audio/air-horn.mp3',
-
-      image: 'assets/images/air-horn.svg',
-    },
-  };
-
-  const jsConfetti = new JSConfetti();
 
   hornSelect.addEventListener('change', (e) => {
 
@@ -82,7 +85,7 @@ function init() {
   });
 
   button.addEventListener('click', () => {
-    
+
     if (audio.src) {
       audio.play();
 
