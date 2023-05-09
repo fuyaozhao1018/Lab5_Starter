@@ -1,5 +1,3 @@
-// expose.js
-
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
@@ -78,7 +76,7 @@ function init() {
       picnum = 2;
 
     } else {
-      
+
       picnum = 3;
     }
 
